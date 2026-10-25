@@ -506,6 +506,7 @@ window.__ModuleLoader__.load({
         levelSpan: 100,
         reminder: { enabled: false, time: '20:00', localOnly: false },
         app: { installed: false, releaseUrl: RELEASE_URL },
+        scheduleAvailable: true,
       };
 
       const due =
@@ -692,7 +693,7 @@ window.__ModuleLoader__.load({
                       : null,
                   ),
                   h('p', { className: 'exh-hint' },
-                    view.reminder?.enabled && view.reminder?.localOnly
+                    (view.reminder?.enabled && view.reminder?.localOnly) || view.scheduleAvailable === false
                       ? t('card.reminderLocal')
                       : t('card.reminderHint')),
                 ),
