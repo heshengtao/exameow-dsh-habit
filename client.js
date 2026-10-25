@@ -886,7 +886,7 @@ window.__ModuleLoader__.load({
 
       return h(
         'section',
-        { className: 'exh-page' },
+        { className: 'exh-page', lang: active === 'zh' ? 'zh-CN' : active || 'en' },
         h('style', { key: 'exh-page-style' }, CSS),
         h('div', { className: 'exh-shell' }, header, content),
       );
