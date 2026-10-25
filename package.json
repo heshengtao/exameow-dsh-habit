@@ -1,0 +1,50 @@
+{
+  "name": "exameow-dsh-habit",
+  "version": "0.1.0",
+  "description": "Daily study goals, streaks, XP and durable reminders for Exameow inside DeepSeek Harness.",
+  "type": "module",
+  "license": "Apache-2.0",
+  "author": "heshengtao",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/heshengtao/exameow-dsh-habit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/heshengtao/exameow-dsh-habit/issues"
+  },
+  "homepage": "https://github.com/heshengtao/exameow-dsh-habit#readme",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "deepseek-harness",
+    "dsh-plugin",
+    "exameow",
+    "study",
+    "habit",
+    "streak",
+    "reminder"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": ["@deepseek-ai/dsh-client-ui-conversation"]
+    }
+  }
+}
