@@ -891,14 +891,15 @@ window.__ModuleLoader__.load({
       .exh-icon-on { color: #c2410c; background: rgba(255, 122, 24, .10); }
       .exh-chevron { width: 22px; color: var(--dsw-alias-label-secondary, #667085); }
       .exh-panel {
+        contain: inline-size;
         margin-top: 8px;
         padding-top: 8px;
         border-top: 1px dashed var(--dsw-alias-border-l1, rgba(127, 127, 127, .22));
       }
       .exh-grid {
         display: grid;
-        grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr);
-        gap: 10px 18px;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 10px;
       }
       .exh-field { min-width: 0; }
       .exh-label {
