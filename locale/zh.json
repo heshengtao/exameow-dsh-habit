@@ -1,6 +1,6 @@
 {
   "meta": {
-    "title": "Exameow 学习打卡",
-    "description": "为 Exameow 设置每日学习目标、连续天数、经验值和定时提醒。"
+    "title": "Exameow 每日学习",
+    "description": "在侧栏管理每日学习目标、连续天数、XP，并用 DSH 定时提醒回到 Exameow。"
   }
 }

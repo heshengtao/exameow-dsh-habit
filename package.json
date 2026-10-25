@@ -1,7 +1,7 @@
 {
   "name": "exameow-dsh-habit",
-  "version": "0.1.0",
-  "description": "Daily study goals, streaks, XP and durable reminders for Exameow inside DeepSeek Harness.",
+  "version": "0.2.0",
+  "description": "A sidebar daily-study page for Exameow inside DeepSeek Harness: goals, streaks, XP and durable reminders.",
   "type": "module",
   "license": "Apache-2.0",
   "author": "heshengtao",
@@ -44,7 +44,9 @@
     "client": {
       "platform": "web",
       "immediately": true,
-      "inject": ["@deepseek-ai/dsh-client-ui-conversation"]
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-conversation"
+      ]
     }
   }
 }

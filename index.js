@@ -166,6 +166,17 @@ export function apply(ctx, config = {}) {
     const levelXp = state.xp % LEVEL_XP;
     const progress = state.goal > 0 ? Math.min(100, Math.round((count / state.goal) * 100)) : 100;
     const reminder = state.reminder || {};
+    const recent = [];
+    for (let offset = 6; offset >= 0; offset -= 1) {
+      const key = dateKey(new Date(Date.now() - offset * 86400000), timeZone);
+      const record = state.days[key];
+      const recordCount = Math.max(0, Number(record?.count) || 0);
+      recent.push({
+        date: key,
+        count: recordCount,
+        done: Boolean(record?.done) || recordCount >= state.goal,
+      });
+    }
     return {
       goal: state.goal,
       today,
@@ -180,6 +191,7 @@ export function apply(ctx, config = {}) {
       levelXp,
       levelSpan: LEVEL_XP,
       timeZone,
+      recent,
       reminder: {
         enabled: Boolean(reminder.enabled),
         time: typeof reminder.time === 'string' ? reminder.time : DEFAULT_TIME,
