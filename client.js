@@ -585,7 +585,9 @@ window.__ModuleLoader__.load({
                 ? t('card.opening')
                 : view.done
                   ? h(React.Fragment, null, h(CheckIcon), h('span', null, t('card.done')))
-                  : h(React.Fragment, null, h('span', null, t('card.go')), h(ArrowIcon)),
+                  : view.app?.installed
+                    ? h(React.Fragment, null, h('span', null, t('card.go')), h(ArrowIcon))
+                    : h(React.Fragment, null, h(DownloadIcon), h('span', null, t('card.download'))),
             ),
             h(
               'button',
@@ -705,7 +707,7 @@ window.__ModuleLoader__.load({
                 h('button', { type: 'button', className: 'exh-quiet', onClick: () => onLog(5), disabled: Boolean(busy) }, t('card.logFive')),
                 h('button', { type: 'button', className: 'exh-quiet exh-quiet-accent', onClick: onCheckin, disabled: Boolean(busy) || view.done }, view.done ? t('card.checkinDone') : t('card.checkin')),
                 h('button', { type: 'button', className: 'exh-quiet', onClick: onOpen, disabled: opening }, view.app?.installed ? t('card.open') : t('card.download')),
-                !view.app?.installed
+                view.app?.installed
                   ? h('button', { type: 'button', className: 'exh-quiet', onClick: onDownload }, h(DownloadIcon), t('card.download'))
                   : null,
               ),
