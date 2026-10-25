@@ -192,6 +192,7 @@ export function apply(ctx, config = {}) {
         installed: isAppInstalled(),
         releaseUrl: RELEASE_URL,
       },
+      scheduleAvailable: Boolean(ctx.get('schedule')),
       clientLastSeen: state.clientLastSeen || null,
       updatedAt: state.updatedAt,
     };
@@ -560,7 +561,9 @@ export function apply(ctx, config = {}) {
             view.done ? '今日目标已完成。' : `还差 ${view.remaining} 题完成今日目标。`,
             view.reminder?.enabled
               ? `每日提醒：${view.reminder.time}（${view.reminder.timeZone}）${view.reminder.localOnly ? '，仅页面内' : ''}`
-              : '尚未设置每日提醒。',
+              : view.scheduleAvailable
+                ? '尚未设置每日提醒。'
+                : '当前 DSH 没有 schedule 服务，无法创建到点提醒。',
             view.app?.installed ? 'Exameow 已安装。' : `Exameow 未检测到，下载：${view.app?.releaseUrl}`,
           ];
           if (value?.awardedXp) lines.unshift(`本轮获得 +${value.awardedXp} XP`);
